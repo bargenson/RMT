@@ -1,0 +1,9 @@
+# Ignore all dotfiles...
+.*
+# except for .gitignore and .openshift
+!.gitignore
+
+target
+deployments
+rebel.xml
+*.iml
