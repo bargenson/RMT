@@ -1,5 +1,7 @@
 package com.supinfo.rmt.controller;
 
+import com.supinfo.rmt.entity.Employee;
+import com.supinfo.rmt.entity.Manager;
 import com.supinfo.rmt.entity.User;
 import com.supinfo.rmt.exception.AuthenticationException;
 import com.supinfo.rmt.service.UserService;
@@ -33,14 +35,18 @@ public class UserController implements Serializable {
     public String login() {
         try {
             user = userService.authenticate(username, password);
-            return "authenticated";
+            if(user instanceof Manager) {
+                return "manager_home?faces-redirect=true";
+            } else if(user instanceof Employee) {
+                return "employee_home?faces-redirect=true";
+            }
         } catch (AuthenticationException e) {
             FacesContext.getCurrentInstance().addMessage(
                     null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, "Bad credentials, please try again.", null)
             );
-            return null;
         }
+        return null;
     }
 
     public String getUsername() {
