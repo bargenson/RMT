@@ -41,10 +41,7 @@ public class UserController implements Serializable {
                 return "employee_home?faces-redirect=true";
             }
         } catch (AuthenticationException e) {
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Bad credentials, please try again.", null)
-            );
+            FacesUtil.addErrorMessage("Bad credentials, please try again.", null);
         }
         return null;
     }

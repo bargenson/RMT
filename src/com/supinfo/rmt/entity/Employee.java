@@ -1,6 +1,8 @@
 package com.supinfo.rmt.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,4 +12,16 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Employee extends User {
+
+    @ManyToOne @JoinColumn
+    private Manager manager;
+
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
 }

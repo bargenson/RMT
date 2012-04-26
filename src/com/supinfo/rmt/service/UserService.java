@@ -40,4 +40,12 @@ public class UserService {
         throw new UnknownUserException(username);
     }
 
+    public boolean usernameExists(String username) {
+        Number nb = (Number) em.createQuery("SELECT COUNT(u) FROM User u WHERE u.username = :username")
+                .setParameter("username", username)
+                .getSingleResult();
+
+        return nb.intValue() > 0;
+    }
+
 }

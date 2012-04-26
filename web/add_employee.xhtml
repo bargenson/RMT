@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Simple JSF Facelets page</title>
+        <meta name="author" content="@bargenson" />
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form styleClass="form-horizontal">
+            <fieldset>
+                <legend>New Employee Form</legend>
+                <div class="control-group">
+                    <div class="controls">
+                        <h:messages errorClass="error"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="Username:" for="username"/>
+                    <div class="controls">
+                        <h:inputText id="username" value="#{employeeController.employee.username}" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="Password:" for="password"/>
+                    <div class="controls">
+                        <h:inputSecret id="password" value="#{employeeController.employee.password}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="First Name:" for="firstName"/>
+                    <div class="controls">
+                        <h:inputText id="firstName" value="#{employeeController.employee.firstName}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="Last Name:" for="lastName"/>
+                    <div class="controls">
+                        <h:inputText id="lastName" value="#{employeeController.employee.lastName}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="E-mail:" for="email"/>
+                    <div class="controls">
+                        <h:inputText id="email" value="#{employeeController.employee.email}"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="Date Of Birth:" for="dateOfBirth"/>
+                    <div class="controls">
+                        <h:inputText id="dateOfBirth" value="#{employeeController.employee.dateOfBirth}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:inputText>
+                        (dd/MM/yyyy)
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <h:commandButton id="submit" styleClass="btn btn-primary"
+                                     value="Submit" action="#{employeeController.addEmployee}" />
+                </div>
+            </fieldset>
+        </h:form>
+    </h:body>
+
+</html>
