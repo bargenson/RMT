@@ -4,10 +4,8 @@ import com.supinfo.rmt.entity.User;
 import com.supinfo.rmt.exception.AuthenticationException;
 import com.supinfo.rmt.exception.UnknownUserException;
 
-import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -21,6 +19,7 @@ public class UserService {
 
     @PersistenceContext
     private EntityManager em;
+
 
     public User authenticate(String username, String password) {
         try {

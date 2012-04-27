@@ -5,12 +5,15 @@
 
     <head>
         <title>Manager Home</title>
+        <meta name="author" content="@bargenson" />
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
     </head>
     <body>
         <p>
             Hello manager #{userController.user.firstName} #{userController.user.lastName}
         </p>
-        <h:dataTable value="#{employeeController.employeesModel}" var="emp">
+        <h:dataTable value="#{employeeController.employeesModel}" var="emp" styleClass="table table-striped">
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Username" />

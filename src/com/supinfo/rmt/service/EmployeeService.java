@@ -26,6 +26,7 @@ public class EmployeeService {
     @EJB
     private UserService userService;
 
+
     public void addEmployee(Employee employee) {
         if(usernameDoesntExist(employee.getUsername())) {
             em.persist(employee);

@@ -32,6 +32,7 @@ public class UserController implements Serializable {
 
     private User user;
 
+
     public String login() {
         try {
             user = userService.authenticate(username, password);
