@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Simple JSF Facelets page</title>
+        <meta name="author" content="@bargenson" />
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
+    </h:head>
+
+    <h:body>
+        <h:form styleClass="form-horizontal">
+            <fieldset>
+                <legend>New Client Form</legend>
+                <div class="control-group">
+                    <div class="controls">
+                        <h:messages errorClass="error"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <h:outputLabel styleClass="control-label" value="Name:" for="name"/>
+                    <div class="controls">
+                        <h:inputText id="name" value="#{clientController.client.name}" />
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <h:commandButton id="submit" styleClass="btn btn-primary"
+                                     value="Submit" action="#{clientController.addClient}" />
+                </div>
+            </fieldset>
+        </h:form>
+    </h:body>
+
+</html>
