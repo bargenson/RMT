@@ -13,26 +13,34 @@
         <p>
             Hello employee #{userController.user.firstName} #{userController.user.lastName}
         </p>
-        <h:dataTable value="#{workTimeController.workTimeModel}" var="worktime" styleClass="table table-striped">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Begin" />
-                </f:facet>
-                ${worktime.begin}
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="End" />
-                </f:facet>
-                ${worktime.end}
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Client" />
-                </f:facet>
-                ${worktime.client.name}
-            </h:column>
-        </h:dataTable>
+        <h:form>
+            <h:dataTable value="#{workTimeController.workTimeModel}" var="worktime" styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Begin" />
+                    </f:facet>
+                    ${worktime.begin}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="End" />
+                    </f:facet>
+                    ${worktime.end}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Client" />
+                    </f:facet>
+                    ${worktime.client.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Action" />
+                    </f:facet>
+                    <h:commandLink action="#{workTimeController.removeWorkTime}" value="Remove" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
         <h:outputLink value="add_worktime.xhtml">Add a WorkTime</h:outputLink>
     </body>
 

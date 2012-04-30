@@ -55,6 +55,12 @@ public class WorkTimeController {
         return workTimeModel;
     }
 
+    public String removeWorkTime() {
+        WorkTime workTimeToRemove = workTimeModel.getRowData();
+        workTimeService.removeWorkTime(workTimeToRemove);
+        return "employee_home?faces-redirect=true";
+    }
+
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
