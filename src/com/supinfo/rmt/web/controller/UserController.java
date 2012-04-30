@@ -1,4 +1,4 @@
-package com.supinfo.rmt.controller;
+package com.supinfo.rmt.web.controller;
 
 import com.supinfo.rmt.entity.Employee;
 import com.supinfo.rmt.entity.Manager;
@@ -7,11 +7,8 @@ import com.supinfo.rmt.exception.AuthenticationException;
 import com.supinfo.rmt.service.UserService;
 
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.persistence.NoResultException;
 import java.io.Serializable;
 
 /**

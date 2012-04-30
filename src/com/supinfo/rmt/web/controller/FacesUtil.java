@@ -1,4 +1,4 @@
-package com.supinfo.rmt.controller;
+package com.supinfo.rmt.web.controller;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

@@ -1,4 +1,4 @@
-package com.supinfo.rmt.controller;
+package com.supinfo.rmt.web.controller;
 
 import com.supinfo.rmt.entity.Employee;
 import com.supinfo.rmt.entity.Manager;

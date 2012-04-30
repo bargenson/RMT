@@ -6,7 +6,10 @@
         <title>Employee Home</title>
     </head>
     <body>
-        Hello employee #{userController.user.firstName} #{userController.user.lastName}
+        <p>
+            Hello employee #{userController.user.firstName} #{userController.user.lastName}
+        </p>
+        <h:outputLink value="add_worktime.xhtml">Add a WorkTime</h:outputLink>
     </body>
 
 </html>
