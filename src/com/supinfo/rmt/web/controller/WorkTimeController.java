@@ -7,6 +7,8 @@ import com.supinfo.rmt.service.WorkTimeService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 
 /**
  * Created with IntelliJ IDEA.
@@ -25,6 +27,8 @@ public class WorkTimeController {
 
     private WorkTime workTime;
 
+    private DataModel<WorkTime> workTimeModel;
+
 
     public String addWorkTime() {
         if(workTime != null) {
@@ -41,6 +45,14 @@ public class WorkTimeController {
             workTime = new WorkTime();
         }
         return workTime;
+    }
+
+    public DataModel<WorkTime> getWorkTimeModel() {
+        if(workTimeModel == null) {
+            Employee employee = (Employee) userController.getUser();
+            workTimeModel = new ListDataModel<WorkTime>(workTimeService.findAllWorkTimesByEmployee(employee));
+        }
+        return workTimeModel;
     }
 
     public void setUserController(UserController userController) {

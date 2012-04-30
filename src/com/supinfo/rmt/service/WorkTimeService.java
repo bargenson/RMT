@@ -1,11 +1,13 @@
 package com.supinfo.rmt.service;
 
+import com.supinfo.rmt.entity.Employee;
 import com.supinfo.rmt.entity.WorkTime;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,4 +26,10 @@ public class WorkTimeService {
         return workTime;
     }
 
+    @SuppressWarnings("unchecked")
+    public List<WorkTime> findAllWorkTimesByEmployee(Employee employee) {
+        return em.createQuery("SELECT wt FROM WorkTime wt WHERE wt.employee = :employee")
+                .setParameter("employee", employee)
+                .getResultList();
+    }
 }
