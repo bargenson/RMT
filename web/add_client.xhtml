@@ -6,7 +6,7 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-        <title>Simple JSF Facelets page</title>
+        <title><h:outputText value="#{msg['views.add_client.title']}" /></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
@@ -15,21 +15,24 @@
     <h:body>
         <h:form styleClass="form-horizontal">
             <fieldset>
-                <legend>New Client Form</legend>
+                <legend><h:outputText value="#{msg['views.add_client.form.client.legend']}" /></legend>
                 <div class="control-group">
                     <div class="controls">
                         <h:messages errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Name:" for="name"/>
+                    <h:outputLabel styleClass="control-label" for="name"
+                                   value="#{msg['views.add_client.form.client.name']}"/>
+
                     <div class="controls">
                         <h:inputText id="name" value="#{clientController.client.name}" required="true" />
                     </div>
                 </div>
                 <div class="form-actions">
                     <h:commandButton id="submit" styleClass="btn btn-primary"
-                                     value="Submit" action="#{clientController.addClient}" />
+                                     value="#{msg['views.add_client.form.client.submit']}"
+                                     action="#{clientController.addClient}" />
                 </div>
             </fieldset>
         </h:form>

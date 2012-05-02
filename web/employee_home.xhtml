@@ -4,44 +4,46 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <head>
-        <title>Employee Home</title>
+        <title><h:outputText value="#{msg['views.employee_home.title']}" /></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
     </head>
     <body>
         <p>
-            Hello employee #{userController.user.firstName} #{userController.user.lastName}
+            <h:outputText value="#{msg['views.employee_home.welcomeMessage']} #{userController.user.firstName} #{userController.user.lastName}" />
         </p>
         <h:form>
             <h:dataTable value="#{workTimeController.workTimeModel}" var="worktime" styleClass="table table-striped">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Begin" />
+                        <h:outputText value="#{msg['views.employee_home.table.header.begin']}" />
                     </f:facet>
                     ${worktime.begin}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="End" />
+                        <h:outputText value="#{msg['views.employee_home.table.header.end']}" />
                     </f:facet>
                     ${worktime.end}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Client" />
+                        <h:outputText value="#{msg['views.employee_home.table.header.client']}" />
                     </f:facet>
                     ${worktime.client.name}
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Action" />
+                        <h:outputText value="#{msg['views.employee_home.table.header.action']}" />
                     </f:facet>
-                    <h:commandLink action="#{workTimeController.removeWorkTime}" value="Remove" />
+                    <h:commandLink action="#{workTimeController.removeWorkTime}" value="#{msg['views.employee_home.table.action.remove']}" />
                 </h:column>
             </h:dataTable>
         </h:form>
-        <h:outputLink value="add_worktime.xhtml">Add a WorkTime</h:outputLink>
+        <h:outputLink value="add_worktime.xhtml">
+            <h:outputText value="#{msg['views.employee_home.link.add_worktime']}" />
+        </h:outputLink>
     </body>
 
 </html>

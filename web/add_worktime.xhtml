@@ -6,7 +6,7 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-        <title>Simple JSF Facelets page</title>
+        <title><h:outputText value="#{msg['views.add_worktime.title']}"/></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
@@ -15,14 +15,14 @@
     <h:body>
         <h:form styleClass="form-horizontal">
             <fieldset>
-                <legend>New WorkTime Form</legend>
+                <legend><h:outputText value="#{msg['views.add_worktime.form.worktime.legend']}"/></legend>
                 <div class="control-group">
                     <div class="controls">
                         <h:messages errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Begin:" for="begin"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.begin']}" for="begin"/>
                     <div class="controls">
                         <h:inputText id="begin" value="#{workTimeController.workTime.begin}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="End:" for="end" />
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.end']}" for="end" />
                     <div class="controls">
                         <h:inputText id="end" value="#{workTimeController.workTime.end}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Client:" for="client"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.client']}" for="client"/>
                     <div class="controls">
                         <h:selectOneMenu id="client" value="#{workTimeController.workTime.client}"
                                          converter="#{clientConverter}" required="true">
@@ -51,7 +51,8 @@
                 </div>
                 <div class="form-actions">
                     <h:commandButton id="submit" styleClass="btn btn-primary"
-                                     value="Submit" action="#{workTimeController.addWorkTime}" />
+                                     value="#{msg['views.add_worktime.form.worktime.submit']}"
+                                     action="#{workTimeController.addWorkTime}" />
                 </div>
             </fieldset>
         </h:form>

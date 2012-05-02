@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <head>
-        <title>Manager Home</title>
+        <title><h:outputText value="#{msg['views.manager_home.title']}"/></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
     </head>
     <body>
         <p>
-            Hello manager #{userController.user.firstName} #{userController.user.lastName}
+            <h:outputText value="#{msg['views.manager_home.welcomeMessage']} #{userController.user.firstName} #{userController.user.lastName}"/>
         </p>
         <h:dataTable value="#{employeeController.employeesModel}" var="emp" styleClass="table table-striped">
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Username" />
+                    <h:outputText value="#{msg['views.manager_home.table.header.username']}" />
                 </f:facet>
                 ${emp.username}
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="First Name" />
+                    <h:outputText value="#{msg['views.manager_home.table.header.firstName']}" />
                 </f:facet>
                 ${emp.firstName}
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Last Name" />
+                    <h:outputText value="#{msg['views.manager_home.table.header.lastName']}" />
                 </f:facet>
                 ${emp.lastName}
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="E-mail" />
+                    <h:outputText value="#{msg['views.manager_home.table.header.email']}" />
                 </f:facet>
                 ${emp.email}
             </h:column>
         </h:dataTable>
-        <h:outputLink value="add_employee.xhtml">Add an employee</h:outputLink>
+        <h:outputLink value="add_employee.xhtml">
+            <h:outputText value="#{msg['views.manager_home.link.add_employee']}"/>
+        </h:outputLink>
         |
-        <h:outputLink value="add_client.xhtml">Add a client</h:outputLink>
+        <h:outputLink value="add_client.xhtml">
+            <h:outputText value="#{msg['views.manager_home.link.add_client']}"/>
+        </h:outputLink>
     </body>
 </html>

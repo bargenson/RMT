@@ -6,7 +6,7 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
-        <title>Simple JSF Facelets page</title>
+        <title><h:outputText value="#{msg['views.add_employee.title']}" /></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
@@ -15,14 +15,14 @@
     <h:body>
         <h:form styleClass="form-horizontal">
             <fieldset>
-                <legend>New Employee Form</legend>
+                <legend><h:outputText value="#{msg['views.add_employee.form.employee.legend']}" /></legend>
                 <div class="control-group">
                     <div class="controls">
                         <h:messages errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Username:" for="username"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.username']}" for="username"/>
                     <div class="controls">
                         <h:inputText id="username" value="#{employeeController.employee.username}" required="true">
                             <f:validateLength minimum="3" maximum="20" />
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Password:" for="password"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.password']}" for="password"/>
                     <div class="controls">
                         <h:inputSecret id="password" value="#{employeeController.employee.password}" required="true">
                             <f:validateLength minimum="4" maximum="20" />
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="First Name:" for="firstName"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.firstName']}" for="firstName"/>
                     <div class="controls">
                         <h:inputText id="firstName" value="#{employeeController.employee.firstName}" required="true">
                             <f:validateLength minimum="2" maximum="20" />
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Last Name:" for="lastName"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.lastName']}" for="lastName"/>
                     <div class="controls">
                         <h:inputText id="lastName" value="#{employeeController.employee.lastName}" required="true">
                             <f:validateLength minimum="2" maximum="20" />
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="E-mail:" for="email"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.email']}" for="email"/>
                     <div class="controls">
                         <h:inputText id="email" value="#{employeeController.employee.email}" required="true">
                             <f:validateLength minimum="4" maximum="50" />
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Date Of Birth:" for="dateOfBirth"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_employee.form.employee.dateOfBirth']}" for="dateOfBirth"/>
                     <div class="controls">
                         <h:inputText id="dateOfBirth" value="#{employeeController.employee.dateOfBirth}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
@@ -74,7 +74,7 @@
                 </div>
                 <div class="form-actions">
                     <h:commandButton id="submit" styleClass="btn btn-primary"
-                                     value="Submit" action="#{employeeController.addEmployee}" />
+                                     value="#{msg['views.add_employee.form.employee.submit']}" action="#{employeeController.addEmployee}" />
                 </div>
             </fieldset>
         </h:form>

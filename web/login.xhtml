@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
     <h:head>
-        <title>Login Page</title>
+        <title><h:outputText value="#{msg['views.login.title']}" /></title>
         <meta name="author" content="@bargenson" />
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
@@ -12,27 +12,28 @@
     <h:body>
         <h:form styleClass="form-horizontal">
             <fieldset>
-                <legend>Login Form</legend>
+                <legend><h:outputText value="#{msg['views.login.form.legend']}" /></legend>
                 <div class="control-group">
                     <div class="controls">
                         <h:messages errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Username:" for="username"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.login.form.username']}" for="username"/>
                     <div class="controls">
                         <h:inputText id="username" value="#{userController.username}" required="true" />
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="Password:" for="password"/>
+                    <h:outputLabel styleClass="control-label" value="#{msg['views.login.form.password']}" for="password"/>
                     <div class="controls">
                         <h:inputSecret id="password" value="#{userController.password}" required="true"/>
                     </div>
                 </div>
                 <div class="form-actions">
                     <h:commandButton id="submit" styleClass="btn btn-primary"
-                                       value="Submit" action="#{userController.login}" />
+                                       value="#{msg['views.login.form.submit']}"
+                                       action="#{userController.login}" />
                 </div>
             </fieldset>
         </h:form>
