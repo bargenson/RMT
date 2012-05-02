@@ -44,6 +44,15 @@ public class UserController implements Serializable {
         return null;
     }
 
+    public boolean isAuthenticated() {
+        return getUser() != null;
+    }
+
+    public String logout() {
+        user = null;
+        return "login?faces-redirect=true";
+    }
+
     public String getUsername() {
         return username;
     }

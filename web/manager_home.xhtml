@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="WEB-INF/template/manager.xhtml">
 
-    <head>
-        <title><h:outputText value="#{msg['views.manager_home.title']}"/></title>
-        <meta name="author" content="@bargenson" />
-        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="#{facesContext.externalContext.request.contextPath}/css/style.css"/>
-    </head>
-    <body>
+    <ui:define name="title">
+        <h:outputText value="#{msg['views.manager_home.title']}" />
+    </ui:define>
+
+    <ui:define name="content">
         <p>
             <h:outputText value="#{msg['views.manager_home.welcomeMessage']} #{userController.user.firstName} #{userController.user.lastName}"/>
         </p>
@@ -40,12 +38,6 @@
                 ${emp.email}
             </h:column>
         </h:dataTable>
-        <h:outputLink value="add_employee.xhtml">
-            <h:outputText value="#{msg['views.manager_home.link.add_employee']}"/>
-        </h:outputLink>
-        |
-        <h:outputLink value="add_client.xhtml">
-            <h:outputText value="#{msg['views.manager_home.link.add_client']}"/>
-        </h:outputLink>
-    </body>
-</html>
+    </ui:define>
+
+</ui:composition>
