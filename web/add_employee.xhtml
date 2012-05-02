@@ -24,38 +24,50 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Username:" for="username"/>
                     <div class="controls">
-                        <h:inputText id="username" value="#{employeeController.employee.username}" />
+                        <h:inputText id="username" value="#{employeeController.employee.username}" required="true">
+                            <f:validateLength minimum="3" maximum="20" />
+                        </h:inputText>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Password:" for="password"/>
                     <div class="controls">
-                        <h:inputSecret id="password" value="#{employeeController.employee.password}"/>
+                        <h:inputSecret id="password" value="#{employeeController.employee.password}" required="true">
+                            <f:validateLength minimum="4" maximum="20" />
+                        </h:inputSecret>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="First Name:" for="firstName"/>
                     <div class="controls">
-                        <h:inputText id="firstName" value="#{employeeController.employee.firstName}"/>
+                        <h:inputText id="firstName" value="#{employeeController.employee.firstName}" required="true">
+                            <f:validateLength minimum="2" maximum="20" />
+                        </h:inputText>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Last Name:" for="lastName"/>
                     <div class="controls">
-                        <h:inputText id="lastName" value="#{employeeController.employee.lastName}"/>
+                        <h:inputText id="lastName" value="#{employeeController.employee.lastName}" required="true">
+                            <f:validateLength minimum="2" maximum="20" />
+                        </h:inputText>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="E-mail:" for="email"/>
                     <div class="controls">
-                        <h:inputText id="email" value="#{employeeController.employee.email}"/>
+                        <h:inputText id="email" value="#{employeeController.employee.email}" required="true">
+                            <f:validateLength minimum="4" maximum="50" />
+                            <f:validator validatorId="emailValidator" />
+                        </h:inputText>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Date Of Birth:" for="dateOfBirth"/>
                     <div class="controls">
-                        <h:inputText id="dateOfBirth" value="#{employeeController.employee.dateOfBirth}">
+                        <h:inputText id="dateOfBirth" value="#{employeeController.employee.dateOfBirth}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
+                            <f:validator validatorId="pastDateValidator" />
                         </h:inputText>
                         (dd/MM/yyyy)
                     </div>

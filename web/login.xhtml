@@ -21,13 +21,13 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Username:" for="username"/>
                     <div class="controls">
-                        <h:inputText id="username" value="#{userController.username}" />
+                        <h:inputText id="username" value="#{userController.username}" required="true" />
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Password:" for="password"/>
                     <div class="controls">
-                        <h:inputSecret id="password" value="#{userController.password}"/>
+                        <h:inputSecret id="password" value="#{userController.password}" required="true"/>
                     </div>
                 </div>
                 <div class="form-actions">

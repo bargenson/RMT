@@ -8,6 +8,8 @@ import com.supinfo.rmt.service.EmployeeService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import java.util.List;
@@ -66,6 +68,10 @@ public class EmployeeController {
 
     public void setUserController(UserController userController) {
         this.userController = userController;
+    }
+
+    public void validateEmployee(FacesContext context, UIComponent component, Object value) {
+
     }
 
 }

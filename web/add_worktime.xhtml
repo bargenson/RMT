@@ -24,16 +24,16 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Begin:" for="begin"/>
                     <div class="controls">
-                        <h:inputText id="begin" value="#{workTimeController.workTime.begin}">
+                        <h:inputText id="begin" value="#{workTimeController.workTime.begin}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="End:" for="end"/>
+                    <h:outputLabel styleClass="control-label" value="End:" for="end" />
                     <div class="controls">
-                        <h:inputText id="end" value="#{workTimeController.workTime.end}">
+                        <h:inputText id="end" value="#{workTimeController.workTime.end}" required="true">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
@@ -42,7 +42,9 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="Client:" for="client"/>
                     <div class="controls">
-                        <h:selectOneMenu id="client" value="#{workTimeController.workTime.client}" converter="#{clientConverter}">
+                        <h:selectOneMenu id="client" value="#{workTimeController.workTime.client}"
+                                         converter="#{clientConverter}" required="true">
+
                             <f:selectItems value="#{clientController.clientItems}" />
                         </h:selectOneMenu>
                     </div>
