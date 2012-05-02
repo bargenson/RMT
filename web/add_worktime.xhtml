@@ -18,7 +18,7 @@
                 <legend><h:outputText value="#{msg['views.add_worktime.form.worktime.legend']}"/></legend>
                 <div class="control-group">
                     <div class="controls">
-                        <h:messages errorClass="error"/>
+                        <h:messages errorClass="error" globalOnly="true"/>
                     </div>
                 </div>
                 <div class="control-group">
@@ -28,6 +28,7 @@
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
+                        <h:message for="begin" errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
@@ -37,6 +38,7 @@
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
+                        <h:message for="end" errorClass="error"/>
                     </div>
                 </div>
                 <div class="control-group">
@@ -47,6 +49,7 @@
 
                             <f:selectItems value="#{clientController.clientItems}" />
                         </h:selectOneMenu>
+                        <h:message for="client" errorClass="error"/>
                     </div>
                 </div>
                 <div class="form-actions">

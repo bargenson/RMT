@@ -15,19 +15,21 @@
                 <legend><h:outputText value="#{msg['views.login.form.legend']}" /></legend>
                 <div class="control-group">
                     <div class="controls">
-                        <h:messages errorClass="error"/>
+                        <h:messages errorClass="error" globalOnly="true"/>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="#{msg['views.login.form.username']}" for="username"/>
                     <div class="controls">
                         <h:inputText id="username" value="#{userController.username}" required="true" />
+                        <h:message errorClass="error" for="username"/>
                     </div>
                 </div>
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="#{msg['views.login.form.password']}" for="password"/>
                     <div class="controls">
                         <h:inputSecret id="password" value="#{userController.password}" required="true"/>
+                        <h:message errorClass="error" for="password"/>
                     </div>
                 </div>
                 <div class="form-actions">

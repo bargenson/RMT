@@ -12,6 +12,9 @@
             <base-name>com.supinfo.rmt.lang</base-name>
             <var>msg</var>
         </resource-bundle>
+        <message-bundle>
+            com.supinfo.rmt.lang
+        </message-bundle>
     </application>
 
 </faces-config>

@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 /**
@@ -24,10 +25,15 @@ public class EmailValidator implements Validator {
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object o) throws ValidatorException {
+        ResourceBundle bundle = getResourceBundle(context);
         String email = (String) o;
         if(!Pattern.matches(EMAIL_PATTERN, email)) {
-            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Bad e-mail format", null));
+            throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, bundle.getString("validations.email.format.summary"), null));
         }
+    }
+
+    private ResourceBundle getResourceBundle(FacesContext context) {
+        return context.getApplication().getResourceBundle(context, "msg");
     }
 
 }

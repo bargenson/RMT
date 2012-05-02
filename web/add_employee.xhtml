@@ -18,7 +18,7 @@
                 <legend><h:outputText value="#{msg['views.add_employee.form.employee.legend']}" /></legend>
                 <div class="control-group">
                     <div class="controls">
-                        <h:messages errorClass="error"/>
+                        <h:messages errorClass="error" globalOnly="true"/>
                     </div>
                 </div>
                 <div class="control-group">
@@ -27,6 +27,7 @@
                         <h:inputText id="username" value="#{employeeController.employee.username}" required="true">
                             <f:validateLength minimum="3" maximum="20" />
                         </h:inputText>
+                        <h:message errorClass="error" for="username" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -35,6 +36,7 @@
                         <h:inputSecret id="password" value="#{employeeController.employee.password}" required="true">
                             <f:validateLength minimum="4" maximum="20" />
                         </h:inputSecret>
+                        <h:message errorClass="error" for="password" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -43,6 +45,7 @@
                         <h:inputText id="firstName" value="#{employeeController.employee.firstName}" required="true">
                             <f:validateLength minimum="2" maximum="20" />
                         </h:inputText>
+                        <h:message errorClass="error" for="firstName" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -51,6 +54,7 @@
                         <h:inputText id="lastName" value="#{employeeController.employee.lastName}" required="true">
                             <f:validateLength minimum="2" maximum="20" />
                         </h:inputText>
+                        <h:message errorClass="error" for="lastName" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -60,6 +64,7 @@
                             <f:validateLength minimum="4" maximum="50" />
                             <f:validator validatorId="emailValidator" />
                         </h:inputText>
+                        <h:message errorClass="error" for="email" />
                     </div>
                 </div>
                 <div class="control-group">
@@ -70,6 +75,7 @@
                             <f:validator validatorId="pastDateValidator" />
                         </h:inputText>
                         (dd/MM/yyyy)
+                        <h:message errorClass="error" for="dateOfBirth" />
                     </div>
                 </div>
                 <div class="form-actions">
