@@ -45,4 +45,8 @@ public class EmployeeService {
                 .setParameter("manager", manager)
                 .getResultList();
     }
+
+    public void removeWorkTime(Employee employee) {
+        em.remove(em.merge(employee));
+    }
 }

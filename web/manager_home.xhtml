@@ -12,32 +12,40 @@
         <p>
             <h:outputText value="#{msg['views.manager_home.welcomeMessage']} #{userController.user.firstName} #{userController.user.lastName}"/>
         </p>
-        <h:dataTable value="#{employeeController.employeesModel}" var="emp" styleClass="table table-striped">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['views.manager_home.table.header.username']}" />
-                </f:facet>
-                ${emp.username}
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['views.manager_home.table.header.firstName']}" />
-                </f:facet>
-                ${emp.firstName}
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['views.manager_home.table.header.lastName']}" />
-                </f:facet>
-                ${emp.lastName}
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['views.manager_home.table.header.email']}" />
-                </f:facet>
-                ${emp.email}
-            </h:column>
-        </h:dataTable>
+        <h:form>
+            <h:dataTable value="#{employeeController.employeesModel}" var="emp" styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['views.manager_home.table.header.username']}" />
+                    </f:facet>
+                    ${emp.username}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['views.manager_home.table.header.firstName']}" />
+                    </f:facet>
+                    ${emp.firstName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['views.manager_home.table.header.lastName']}" />
+                    </f:facet>
+                    ${emp.lastName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['views.manager_home.table.header.email']}" />
+                    </f:facet>
+                    ${emp.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['views.manager_home.table.header.action']}" />
+                    </f:facet>
+                    <h:commandLink action="#{employeeController.removeEmployee}" value="#{msg['views.manager_home.table.action.remove']}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
     </ui:define>
 
 </ui:composition>

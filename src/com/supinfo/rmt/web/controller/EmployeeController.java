@@ -2,6 +2,7 @@ package com.supinfo.rmt.web.controller;
 
 import com.supinfo.rmt.entity.Employee;
 import com.supinfo.rmt.entity.Manager;
+import com.supinfo.rmt.entity.WorkTime;
 import com.supinfo.rmt.exception.UsernameAlreadyExistsException;
 import com.supinfo.rmt.service.EmployeeService;
 
@@ -66,12 +67,14 @@ public class EmployeeController {
         this.employee = employee;
     }
 
-    public void setUserController(UserController userController) {
-        this.userController = userController;
+    public String removeEmployee() {
+        Employee employeeToRemove = employeesModel.getRowData();
+        employeeService.removeWorkTime(employeeToRemove);
+        return "manager_home?faces-redirect=true";
     }
 
-    public void validateEmployee(FacesContext context, UIComponent component, Object value) {
-
+    public void setUserController(UserController userController) {
+        this.userController = userController;
     }
 
 }

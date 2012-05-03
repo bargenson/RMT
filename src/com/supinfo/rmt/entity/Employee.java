@@ -20,7 +20,7 @@ public class Employee extends User {
     @ManyToOne @JoinColumn
     private Manager manager;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", orphanRemoval = true)
     private List<WorkTime> workTimes;
 
     public Manager getManager() {
