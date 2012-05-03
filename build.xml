@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="rmt" default="all">
   
-    <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
    -->
@@ -58,6 +58,21 @@
   
   <!-- Project Libraries -->
   
+  <path id="library.hibernate_validator.4.2.0-hibernate_validator.4.2.0.classpath">
+    <pathelement location="${basedir}/lib/activation-1.1.jar"/>
+    <pathelement location="${basedir}/lib/hibernate-validator-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/hibernate-validator-annotation-processor-4.2.0.jar"/>
+    <pathelement location="${basedir}/lib/jaxb-api-2.2.jar"/>
+    <pathelement location="${basedir}/lib/jaxb-impl-2.1.12.jar"/>
+    <pathelement location="${basedir}/lib/joda-time-1.6.jar"/>
+    <pathelement location="${basedir}/lib/jsoup-1.5.2.jar"/>
+    <pathelement location="${basedir}/lib/log4j-1.2.16.jar"/>
+    <pathelement location="${basedir}/lib/slf4j-api-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/slf4j-log4j12-1.6.1.jar"/>
+    <pathelement location="${basedir}/lib/stax-api-1.0-2.jar"/>
+    <pathelement location="${basedir}/lib/validation-api-1.0.0.GA.jar"/>
+  </path>
+  
   <path id="library.lib.classpath">
     <pathelement location="${basedir}/lib/javax.annotation.jar"/>
     <pathelement location="${basedir}/lib/javax.ejb.jar"/>
@@ -96,22 +111,26 @@
   
   <path id="rmt.module.production.classpath">
     <path refid="library.lib.classpath"/>
+    <path refid="library.hibernate_validator.4.2.0-hibernate_validator.4.2.0.classpath"/>
   </path>
   
   <path id="rmt.runtime.production.module.classpath">
     <pathelement location="${rmt.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.hibernate_validator.4.2.0-hibernate_validator.4.2.0.classpath"/>
   </path>
   
   <path id="rmt.module.classpath">
     <pathelement location="${rmt.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.hibernate_validator.4.2.0-hibernate_validator.4.2.0.classpath"/>
   </path>
   
   <path id="rmt.runtime.module.classpath">
     <pathelement location="${rmt.testoutput.dir}"/>
     <pathelement location="${rmt.output.dir}"/>
     <path refid="library.lib.classpath"/>
+    <path refid="library.hibernate_validator.4.2.0-hibernate_validator.4.2.0.classpath"/>
   </path>
   
   
@@ -182,6 +201,19 @@
     <copy todir="${artifact.output.rmt:war_exploded}/WEB-INF/classes">
       <fileset dir="${rmt.output.dir}"/>
     </copy>
+    <mkdir dir="${artifact.output.rmt:war_exploded}/WEB-INF/lib"/>
+    <copy file="${basedir}/lib/activation-1.1.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/activation-1.1.jar"/>
+    <copy file="${basedir}/lib/hibernate-validator-4.2.0.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/hibernate-validator-4.2.0.jar"/>
+    <copy file="${basedir}/lib/hibernate-validator-annotation-processor-4.2.0.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/hibernate-validator-annotation-processor-4.2.0.jar"/>
+    <copy file="${basedir}/lib/jaxb-api-2.2.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/jaxb-api-2.2.jar"/>
+    <copy file="${basedir}/lib/jaxb-impl-2.1.12.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/jaxb-impl-2.1.12.jar"/>
+    <copy file="${basedir}/lib/joda-time-1.6.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/joda-time-1.6.jar"/>
+    <copy file="${basedir}/lib/jsoup-1.5.2.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/jsoup-1.5.2.jar"/>
+    <copy file="${basedir}/lib/log4j-1.2.16.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/log4j-1.2.16.jar"/>
+    <copy file="${basedir}/lib/slf4j-api-1.6.1.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
+    <copy file="${basedir}/lib/slf4j-log4j12-1.6.1.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/slf4j-log4j12-1.6.1.jar"/>
+    <copy file="${basedir}/lib/stax-api-1.0-2.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/stax-api-1.0-2.jar"/>
+    <copy file="${basedir}/lib/validation-api-1.0.0.GA.jar" tofile="${artifact.output.rmt:war_exploded}/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
     <copy todir="${artifact.output.rmt:war_exploded}">
       <fileset dir="${basedir}/web"/>
     </copy>
