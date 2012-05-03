@@ -1,6 +1,10 @@
 package com.supinfo.rmt.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 /**
@@ -15,15 +19,19 @@ public class WorkTime {
     @Id @GeneratedValue
     private Long id;
 
+    @NotNull @Past
     @Temporal(TemporalType.DATE)
     private Date begin;
 
+    @NotNull @Past
     @Temporal(TemporalType.DATE)
     private Date end;
 
+    @NotNull
     @ManyToOne @JoinColumn
     private Client client;
 
+    @NotNull
     @ManyToOne @JoinColumn
     private Employee employee;
 

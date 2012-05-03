@@ -20,7 +20,7 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.begin']}" for="begin"/>
                     <div class="controls">
-                        <h:inputText id="begin" value="#{workTimeController.workTime.begin}" required="true">
+                        <h:inputText id="begin" value="#{workTimeController.workTime.begin}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
@@ -30,7 +30,7 @@
                 <div class="control-group">
                     <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.end']}" for="end" />
                     <div class="controls">
-                        <h:inputText id="end" value="#{workTimeController.workTime.end}" required="true">
+                        <h:inputText id="end" value="#{workTimeController.workTime.end}">
                             <f:convertDateTime pattern="dd/MM/yyyy" />
                         </h:inputText>
                         (dd/MM/yyyy)
@@ -38,11 +38,10 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <h:outputLabel styleClass="control-label" value="#{msg['views.add_worktime.form.worktime.client']}" for="client"/>
+                    <h:outputLabel styleClass="control-label"
+                                   value="#{msg['views.add_worktime.form.worktime.client']}" for="client"/>
                     <div class="controls">
-                        <h:selectOneMenu id="client" value="#{workTimeController.workTime.client}"
-                                         converter="#{clientConverter}" required="true">
-
+                        <h:selectOneMenu id="client" value="#{workTimeController.workTime.client}" converter="#{clientConverter}">
                             <f:selectItems value="#{clientController.clientItems}" />
                         </h:selectOneMenu>
                         <h:message for="client" errorClass="error"/>

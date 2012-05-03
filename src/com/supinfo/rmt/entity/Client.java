@@ -1,8 +1,11 @@
 package com.supinfo.rmt.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,6 +19,7 @@ public class Client {
     @Id @GeneratedValue
     private Long id;
 
+    @NotEmpty @Size(min = 2, max = 30)
     private String name;
 
 
