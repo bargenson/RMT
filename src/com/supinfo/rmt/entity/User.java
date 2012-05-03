@@ -1,5 +1,6 @@
 package com.supinfo.rmt.entity;
 
+import com.supinfo.rmt.validation.constraints.SecuredPassword;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -18,7 +19,7 @@ public abstract class User {
     @NotEmpty @Size(min = 4, max = 20)
     private String username;
 
-    @NotEmpty @Size(min = 4, max = 20)
+    @SecuredPassword
     private String password;
 
     @NotEmpty @Size(min = 2, max = 30)
