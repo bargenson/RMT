@@ -1,0 +1,8 @@
+<cloudbees-web-app>
+    <appid>supinfo/rmt</appid>
+    <resource name="jboss/datasource/RMT-DS" auth="Container" type="javax.sql.DataSource">
+        <param name="username" value="rmt" />
+        <param name="password" value="toor" />
+        <param name="url" value="jdbc:mysql://ec2-50-19-213-178.compute-1.amazonaws.com:3306/RMT-DB" />
+    </resource>
+</cloudbees-web-app>
